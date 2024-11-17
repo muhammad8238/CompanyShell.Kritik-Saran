@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azama Matulezi - CEO Brunei Shell</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #F3C623;
+            color: #10375C;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #F3C623;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px); /* Initial position for animation */
+            transition: all 0.6s ease-out; /* Smooth transition effect */
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #home {
+            position: relative;
+            background: url('https://media.glassdoor.com/l/e9/32/34/41/offshore-installation-of-blwj01-topside.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 0 10px black;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 128, 0.5);
+            z-index: 1;
+        }
+
+        #home h1, 
+        #home .glow-box, 
+        #home .line {
+            position: relative;
+            z-index: 2;
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            animation: bounce 3s infinite alternate;
+        }
+
+        #home .glow-box {
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 0 15px #f3c623, 0 0 25px #ff5733;
+            animation: glowMove 3s infinite alternate;
+        }
+
+        #home .glow-box p {
+            font-size: 1.5rem;
+            color: white;
+            margin: 0;
+        }
+
+        .line {
+            margin: 20px auto;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, red, black);
+            border-radius: 2px;
+            animation: borderGlow 2s infinite alternate;
+        }
+
+        .divider {
+            width: 80%;
+            height: 4px;
+            margin: 40px auto;
+            background: linear-gradient(90deg, #F3C623, #10375C);
+            border-radius: 4px;
+        }
+
+        #about {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(243, 198, 35, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        #kritik {
+            background: #10375C;
+            color: white;
+        }
+
+        button {
+            background: linear-gradient(90deg, #10375C, #F3C623);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #F3C623;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glowMove {
+            from {
+                box-shadow: 0 0 15px #f3c623;
+            }
+            to {
+                box-shadow: 0 0 25px #ff5733;
+            }
+        }
+
+        @keyframes borderGlow {
+            from {
+                box-shadow: 0 0 10px red;
+            }
+            to {
+                box-shadow: 0 0 20px black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <img src="https://www.kindpng.com/picc/m/168-1682752_shell-transparent-logo-brunei-shell-petroleum-logo-hd.png" alt="Brunei Shell Logo">
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#kritik">Kritik & Saran</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="visible">
+        <h1>Azama Matulezi</h1>
+        <div class="glow-box">
+            <p>CEO of Brunei Shell</p>
+        </div>
+        <div class="line"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>About Azama Matulezi</h1>
+        <div class="long-text">
+            <p>
+                As the CEO of Brunei Shell, I shoulder the responsibility of leading one of the region’s most prominent energy companies into a new era of challenges and opportunities. With over a decade of experience in the energy sector, I understand the critical balance between meeting global energy demands and championing sustainability. My leadership is rooted in fostering innovation, operational efficiency, and close collaboration with stakeholders to build a resilient foundation for long-term success.
+
+I believe the future of energy lies in a responsible transition from conventional energy sources to renewable alternatives. Under my leadership, Brunei Shell has adopted a strategic approach focused on reducing carbon emissions, developing local talent, and investing in environmentally friendly energy infrastructure. This commitment not only aligns with global efforts to combat climate change but also ensures economic growth and social welfare for the people of Brunei.
+
+As a leader, I uphold the values of integrity, transparency, and innovation in every decision I make. True progress, in my view, can only be achieved through strong teamwork, a clear vision, and the courage to take bold steps for the greater good. With this mindset, I strive to position Brunei Shell as a pioneer in global energy transformation, creating a lasting and positive impact for generations to come.
+            </p>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://ciib.org/wp-content/uploads/2021/07/strategic-goals-2.jpg" alt="strategic goals">
+                <h3>Strategic Goals</h3>
+                <p>Brunei Shell operates on three core strategic pillars: sustainability, innovation, and social impact. The sustainability pillar focuses on reducing carbon emissions and transitioning to renewable energy sources, aiming for net-zero operations by 2050. Innovation emphasizes investing in cutting-edge technologies and digital transformation to enhance efficiency and competitiveness. Lastly, the social impact pillar is dedicated to creating local job opportunities, fostering talent development, and empowering communities through meaningful initiatives. These pillars form the foundation of Brunei Shell’s commitment to driving progress and delivering value for all stakeholders.
+
+                </p>
+            </div>
+            <div class="card">
+                <img src="https://thebuildingpeople.com/wp-content/uploads/2022/09/AdobeStock_512756773.jpeg" alt="Operational Excellence">
+                <h3>Operational Excellence</h3>
+                <p>Brunei Shell’s operational excellence is reflected in its remarkable achievements over the years. The company has successfully launched more than 10 renewable energy projects, reduced carbon emissions by 25% in the past five years, and empowered over 1,000 local workers through training and employment opportunities. These milestones demonstrate the company’s dedication to maintaining high efficiency while contributing positively to the community and environment. Brunei Shell’s pursuit of excellence ensures that it remains a leader in delivering energy solutions that are both reliable and sustainable.</p>
+            </div>
+            <div class="card">
+                <img src="https://ethz.ch/en/news-and-events/eth-news/news/2021/01/modelling-the-energy-transition/_jcr_content/news_content/fullwidthimage_1700394172/image.imageformat.lightbox.1636432422.png" alt="Energy Transition Pathway">
+                <h3>Energy Transition Pathway</h3>
+                <p>Brunei Shell has outlined a clear energy transition pathway to achieve net-zero emissions by 2050. By 2025, the company aims to significantly expand its renewable energy capacity in collaboration with global partners. By 2030, advanced AI-driven energy management systems will be integrated to optimize efficiency across operations. By 2050, Brunei Shell is committed to achieving net-zero emissions through a combination of clean energy innovation, operational efficiency, and carbon offset initiatives. This roadmap reflects the company’s unwavering dedication to shaping a sustainable energy future.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Kritik & Saran Section -->
+    <section id="kritik">
+        <h1>Kritik & Saran</h1>
+        <p>Your feedback helps us improve and innovate. Share your thoughts below.</p>
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Feedback" rows="4" required></textarea>
+            <button type="submit" onclick="event.preventDefault()">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2024 Azama Matulezi. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Intersection Observer for scrolling animation
+        const sections = document.querySelectorAll('section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Animation for cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
